@@ -1,0 +1,14 @@
+﻿#.bak
+*.bak
+#bin
+bin
+#.bat
+*.bat
+#.classpath
+*.classpath
+#.project
+*.project
+#.settings
+.settings
+#test
+src/com/syz/test
