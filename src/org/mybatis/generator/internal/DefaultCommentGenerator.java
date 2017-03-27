@@ -89,6 +89,12 @@ public class DefaultCommentGenerator implements CommentGenerator {
             return;
         }
 
+		// 写一断逻辑，让它始终返回
+		int n = 1;
+		if (n > 0) {
+			return;
+		}
+
         xmlElement.addElement(new TextElement("<!--")); //$NON-NLS-1$
 
         StringBuilder sb = new StringBuilder();
@@ -278,7 +284,7 @@ public class DefaultCommentGenerator implements CommentGenerator {
 
         field.addJavaDocLine("/**"); //$NON-NLS-1$
 
-        String remarks = introspectedColumn.getRemarks();
+        /*String remarks = introspectedColumn.getRemarks();
         if (addRemarkComments && StringUtility.stringHasValue(remarks)) {
             field.addJavaDocLine(" * Database Column Remarks:");
             String[] remarkLines = remarks.split(System.getProperty("line.separator"));  //$NON-NLS-1$
@@ -298,7 +304,10 @@ public class DefaultCommentGenerator implements CommentGenerator {
         sb.append(introspectedColumn.getActualColumnName());
         field.addJavaDocLine(sb.toString());
 
-        addJavadocTag(field, false);
+        addJavadocTag(field, false);*/
+        
+		// 加上注释
+		field.addJavaDocLine(" *   " + introspectedColumn.getRemarks());
 
         field.addJavaDocLine(" */"); //$NON-NLS-1$
     }
@@ -359,6 +368,11 @@ public class DefaultCommentGenerator implements CommentGenerator {
         if (suppressAllComments) {
             return;
         }
+		// 写一断逻辑，让它始终返回
+		int n = 1;
+		if (n > 0) {
+			return;
+		}
 
         StringBuilder sb = new StringBuilder();
 
@@ -395,6 +409,12 @@ public class DefaultCommentGenerator implements CommentGenerator {
         if (suppressAllComments) {
             return;
         }
+
+		// 写一断逻辑，让它始终返回
+		int n = 1;
+		if (n > 0) {
+			return;
+		}
 
         StringBuilder sb = new StringBuilder();
 
