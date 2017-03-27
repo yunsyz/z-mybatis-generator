@@ -781,7 +781,7 @@ public abstract class IntrospectedTable {
         setMyBatis3XmlMapperPackage(calculateSqlMapPackage());
 
         setIbatis2SqlMapNamespace(calculateIbatis2SqlMapNamespace());
-        setMyBatis3FallbackSqlMapNamespace(calculateMyBatis3FallbackSqlMapNamespace());
+		setMyBatis3FallbackSqlMapNamespace(calculateMyBatis3FallbackSqlMapNamespace());
         
         setSqlMapFullyQualifiedRuntimeTableName(calculateSqlMapFullyQualifiedRuntimeTableName());
         setSqlMapAliasedFullyQualifiedRuntimeTableName(calculateSqlMapAliasedFullyQualifiedRuntimeTableName());
@@ -1420,7 +1420,7 @@ public abstract class IntrospectedTable {
         
         // config can be null if the Java client does not require XML
         if (config != null) {
-            sb.append(config.getTargetPackage());
+			sb.append(config.getTargetPackage());
             sb.append(fullyQualifiedTable.getSubPackageForClientOrSqlMap(isSubPackagesEnabled(config)));
             if (stringHasValue(tableConfiguration.getMapperName())) {
                 String mapperName = tableConfiguration.getMapperName();
@@ -1485,8 +1485,9 @@ public abstract class IntrospectedTable {
      */
     protected String calculateMyBatis3FallbackSqlMapNamespace() {
         StringBuilder sb = new StringBuilder();
-        sb.append(calculateSqlMapPackage());
-        sb.append('.');
+		// 注释下面两行，不要mpper中namespace的包名
+		// sb.append(calculateSqlMapPackage());
+		// sb.append('.');
         if (stringHasValue(tableConfiguration.getMapperName())) {
             sb.append(tableConfiguration.getMapperName());
         } else {
